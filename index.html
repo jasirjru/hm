@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hospital Management - Login</title>
+    <style>
+        /* Base styling */
+        body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('12.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Makes the background image stay fixed when scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+
+        .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0.8rem; /* Adjusted gap */
+    flex-wrap: wrap;
+    padding-right: 1rem; /* Reduce the padding on the right */
+}
+
+.navbar {
+    padding-left: 0.5rem; /* Add padding to the left to move links left */
+    padding-right: 0.5rem; /* Adjust right padding to make space for links */
+}
+
+        /* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0048BA;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0rem; /* Adjust gap to balance spacing */
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin-right: 0.5rem; /* Added small margin to each list item */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem; /* Add padding to create more clickable area */
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f0f4f8;
+}
+v
+
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0048BA;
+            padding: 0.5rem 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 0.8rem; /* Adjusted gap */
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem; /* Adjusted font size */
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f0f4f8;
+        }
+
+        /* Container Styling */
+        .container {
+            background-color: white;
+            width: 400px;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            margin-top: 6rem; /* To prevent overlap with the navbar */
+        }
+
+        /* Animation for container */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Styling */
+        .login-form h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0048BA;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus {
+            border-color: #0048BA;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #0048BA;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #003a8a;
+        }
+
+        .login-form p {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #555;
+        }
+
+        .login-form a {
+            color: #0048BA;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Radio buttons styling */
+        .user-type {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-type label {
+            font-size: 1rem;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .user-type input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        /* Advanced Animations */
+        .container:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 72, 186, 0.2);
+            border-radius: 50%;
+            animation: floating 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .container:after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(0, 72, 186, 0.2);
+            border-radius: 50%;
+            animation: floating 7s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 2rem;
+            }
+
+            .navbar {
+                padding: 0.5rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 0.4rem; /* Reduced gap for smaller screens */
+            }
+
+            .nav-links a {
+                font-size: 0.75rem; /* Further reduced font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">HealthCare Hub</h1>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Appointments</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <form class="login-form" onsubmit="handleLogin(event)">
+            <h1>Patient/Doctor Login</h1>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <div class="user-type">
+                <label><input type="radio" name="user" value="patient"> Patient</label>
+                <label><input type="radio" name="user" value="doctor"> Doctor</label>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <p>Don't have an account? <a href="register.html" class="register-link">Register here</a></p>
+
+        </form>
+    </div>
+
+    <!-- JavaScript to handle form submission and redirect based on user type -->
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form from submitting traditionally
+            const userType = document.querySelector('input[name="user"]:checked');
+            if (userType && userType.value === 'doctor') {
+                window.location.href = 'doctor_dashboard.html';
+            } else if (userType && userType.value === 'patient') {
+                window.location.href = 'patient_dashboard.html';
+            } else {
+                alert('Please select a user type');
+            }
+        }
+    </script>
+</body>  
+</html>

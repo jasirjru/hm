@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Hospital Management - Register</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('12.jpg'); /* Set the background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 400px;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-form h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0048BA;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .register-form input[type="text"],
+        .register-form input[type="email"],
+        .register-form input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #0048BA;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #003a8a;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #555;
+        }
+
+        .login-link a {
+            color: #0048BA;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .user-type {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-type label {
+            font-size: 1rem;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .user-type input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="register-form" onsubmit="handleRegister(event)">
+            <h1>Register</h1>
+
+            <div class="user-type">
+                <label><input type="radio" name="userType" value="patient" required> Patient</label>
+                <label><input type="radio" name="userType" value="doctor"> Doctor</label>
+            </div>
+
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <button type="submit" class="btn">Register</button>
+            <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+        </form>
+    </div>
+
+    <script>
+        function handleRegister(event) {
+            event.preventDefault(); // Prevent form from submitting traditionally
+            
+            // Get user type
+            const userType = document.querySelector('input[name="userType"]:checked');
+            if (!userType) {
+                alert("Please select a user type");
+                return;
+            }
+
+            // Registration logic here (you can send this data to your server)
+            const username = document.querySelector('input[placeholder="Username"]').value;
+            const email = document.querySelector('input[placeholder="Email"]').value;
+            const password = document.querySelector('input[placeholder="Password"]').value;
+            const confirmPassword = document.querySelector('input[placeholder="Confirm Password"]').value;
+
+            // Basic validation for password confirmation
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            // You can implement an API call here to send the data to your server
+            alert(`Registration successful! You are registering as a ${userType.value}.`);
+        }
+    </script>
+</body>
+</html>

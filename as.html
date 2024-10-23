@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Hospital Management System - Dashboard</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0048BA;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #f0f4f8;
+        }
+
+        /* Main Content Area */
+        .main {
+            flex: 1;
+            display: flex;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background-color: #0048BA;
+            color: white;
+            padding: 1rem;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .sidebar-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar .sidebar-links li {
+            margin: 1rem 0;
+        }
+
+        .sidebar .sidebar-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .sidebar .sidebar-links a:hover {
+            color: #f0f4f8;
+        }
+
+        /* Dashboard Content Styling */
+        .dashboard {
+            flex: 1;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 1rem;
+            overflow: auto;
+        }
+
+        .dashboard h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #0048BA;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            flex: 1;
+            background-color: #e8f0fe;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 0 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #0048BA;
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Booking Form Styling */
+        .booking-form {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-form h2 {
+            margin-bottom: 1rem;
+            color: #0048BA;
+        }
+
+        .booking-form input, .booking-form select {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .booking-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #0048BA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .booking-form button:hover {
+            background-color: #003a8a;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0048BA;
+            color: white;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .dashboard {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <h1 class="logo">HealthCare Hub</h1>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </header>
+
+    <div class="main">
+        <aside class="sidebar">
+            <h2>Menu</h2>
+            <ul class="sidebar-links">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Manage Patients</a></li>
+                <li><a href="#">Manage Doctors</a></li>
+                <li><a href="#">Appointments</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </aside>
+
+        <section class="dashboard">
+            <h1>Dashboard</h1>
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>200</h3>
+                    <p>Patients</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50</h3>
+                    <p>Doctors</p>
+                </div>
+                <div class="stat-card">
+                    <h3>30</h3>
+                    <p>Appointments Today</p>
+                </div>
+            </div>
+
+            <h2>Recent Appointments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Doctor Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Dr. Smith</td>
+                        <td>2024-10-20</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>Dr. Brown</td>
+                        <td>2024-10-21</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>Mike Wilson</td>
+                        <td>Dr. Taylor</td>
+                        <td>2024-10-22</td>
+                        <td>Cancelled</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Booking Appointment Form -->
+            <div class="booking-form">
+                <h2>Book an Appointment</h2>
+                <form id="appointment-form" onsubmit="handleBooking(event)">
+                    <input type="text" placeholder="Patient Name" required>
+                    <input type="text" placeholder="Doctor Name" required>
+                    <input type="date" required>
+                    <input type="time" required>
+                    <textarea placeholder="Reason for visit" rows="3" required></textarea>
+                    <button type="submit">Book Appointment</button>
